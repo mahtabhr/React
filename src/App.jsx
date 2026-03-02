@@ -1,11 +1,11 @@
-
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Container from './components/Container';
-import Flex from './components/Flex';
-import { CgAdidas,CgYinyang } from "react-icons/cg";
-import { AiFillAndroid } from "react-icons/ai";
-import { Camera } from 'lucide-react';
-// import { Bike } from 'lucide-react';
+import Home from './components/pages/Home'
+import About from './components/pages/About'
+import RootLayout from './components/layouts/RootLayout'
+import Contact from './components/pages/Contact'
+import Error from './components/pages/Error'
+
 
 
 function App() {
@@ -13,21 +13,14 @@ function App() {
 
   return (
     <>
-    
-   <Container>
-    <Flex className={'justify-between'}>
-      <div className="w-50 h-50 bg-yellow-400">
-        <Camera color="black" size={50} />
-
-      </div>
-      <div className="w-50 h-50 bg-green-400 ">
-        <CgAdidas className={" text-white text-5xl "}/>
-        <CgYinyang className={" text-white text-5xl "}/>
-        <AiFillAndroid className={" text-white text-5xl "}/>
-        </div>
-     </Flex>
-   </Container>
-     
+    <Routes>
+      <Route path="/" element ={<RootLayout />}>
+       <Route index element={<Home/>}/>
+       <Route path="about" element={<About/>}/>
+       <Route path="contact" element={<Contact/>}/>
+       <Route path="*" element={<Error/>}/>
+      </Route>
+    </Routes>
     </>
   )
 }

@@ -2,7 +2,7 @@
 
 const Image = ({imgSrc,imgAlt}) => {
   return (
-    <img src={imgSrc} alt={imgAlt}/>
+    <img src={imgSrc} alt={imgAlt} className="h-50 w-50"/>
   )
 }
 
